@@ -6,6 +6,7 @@ import { RootStackParamList } from '../../types/root-stack-param';
 import { styles } from './topic-selector-screen.style';
 import TopicCard from '../../components/topic-card/topic-card';
 import { NAVIGATION } from '../../types/navigation-routes';
+import { TEXTS } from '../../constants/texts';
 
 export default function TopicSelectorScreen() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -14,26 +15,30 @@ export default function TopicSelectorScreen() {
   const selectedTopic: string | undefined = route.params?.selected;
 
   const selectTopic = (topic?: string) => {
-    navigation.navigate('Home', { selectedTopic: topic });
+    navigation.navigate(NAVIGATION.HOME, { selectedTopic: topic });
   };
 
   return (
     <>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>Выбор темы</Text>
+          <Text style={styles.title}>{TEXTS.selectTopic}</Text>
         </View>
         <FlatList
-          data={['Все темы', ...tags]}
+          data={[TEXTS.allTopics, ...tags]}
+          initialNumToRender={10}
+          maxToRenderPerBatch={10}
+          windowSize={5}
+          removeClippedSubviews={true}
           keyExtractor={(item, index) => `${item}-${index}`}
           contentContainerStyle={styles.list}
           renderItem={({ item }) => {
-            const isSelected = (item === 'Все темы' && !selectedTopic) || item === selectedTopic;
+            const isSelected = (item === TEXTS.allTopics && !selectedTopic) || item === selectedTopic;
             return (
               <TopicCard
                 label={item}
                 isSelected={isSelected}
-                onPress={() => selectTopic(item === 'Все темы' ? undefined : item)}
+                onPress={() => selectTopic(item === TEXTS.allTopics ? undefined : item)}
               />
             );
           }}

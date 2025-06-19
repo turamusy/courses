@@ -3,7 +3,7 @@ import { Image, Text, View } from 'react-native';
 import { styles } from './course-card.style';
 import { ICourse } from '../../interfaces/courses';
 
-/** @description  */
+/** The course card contains a short name and a picture */
 const CourseCard: React.FC<Pick<ICourse, 'name' | 'bgColor' | 'image'>> = ({ name, image, bgColor }) => (
     <View style={styles.container}>
         <Image

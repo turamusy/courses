@@ -4,7 +4,7 @@ import { convertHexToRGBA } from "../../utils/convertHexToRgba";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1, 
+        flex: 1,
         paddingLeft: 20,
         paddingVertical: 12,
         backgroundColor: theme.purple,
@@ -12,9 +12,9 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
     },
     loadingContainer: {
-        flex: 1, 
-        justifyContent: 'center', 
-        alignItems: 'center' ,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: theme.purple
     },
     title: {
@@ -24,16 +24,11 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 20,
     },
-    text: {
-        color: theme.white,
-        fontSize: 18,
-        textAlign: 'center',
-    },
     topicContainer: {
         flexDirection: 'row',
         marginBottom: 40,
         height: 30,
-        minWidth: 100, 
+        minWidth: 100,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: convertHexToRGBA(theme.black, 0.2),
@@ -59,4 +54,5 @@ export const styles = StyleSheet.create({
         color: theme.white,
         textAlign: 'center',
     },
+    itemSeparator: { width: 18 },
 });

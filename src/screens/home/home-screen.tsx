@@ -7,11 +7,12 @@ import { getCourses } from '../../api/api';
 import { ICourse } from '../../interfaces/courses';
 import { styles } from './home-screen.styles';
 import CourseCard from '../../components/course-card/course-card';
+import { NAVIGATION } from '../../types/navigation-routes';
 
 /*  */
 export default function HomeScreen() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  const route = useRoute<RouteProp<RootStackParamList, 'Home'>>();
+  const route = useRoute<RouteProp<RootStackParamList, NAVIGATION.HOME>>();
   const [loading, setLoading] = useState<boolean>(true);
   const [courses, setCourses] = useState<ICourse[]>([]);
   const [allTags, setAllTags] = useState<string[]>([]);
@@ -57,7 +58,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('TopicSelector', { tags: allTags, selected: selectedTopic })}
+        onPress={() => navigation.navigate(NAVIGATION.TOPIC_SELECTOR, { tags: allTags, selected: selectedTopic })}
         style={styles.topicContainer}
       >
         <Text style={styles.topicText}>

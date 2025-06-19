@@ -5,10 +5,11 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../types/root-stack-param';
 import { styles } from './topic-selector-screen.style';
 import TopicCard from '../../components/topic-card/topic-card';
+import { NAVIGATION } from '../../types/navigation-routes';
 
 export default function TopicSelectorScreen() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  const route = useRoute<RouteProp<RootStackParamList, 'TopicSelector'>>();
+  const route = useRoute<RouteProp<RootStackParamList, NAVIGATION.TOPIC_SELECTOR>>();
   const tags: string[] = route.params?.tags || [];
   const selectedTopic: string | undefined = route.params?.selected;
 

@@ -45,7 +45,7 @@ export default function TopicSelectorScreen() {
         />
       </View>
       <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
-        <Text style={styles.closeText}>✕</Text>
+        <Text style={styles.closeText}>{TEXTS.closeChar}</Text>
       </TouchableOpacity>
     </>
   );

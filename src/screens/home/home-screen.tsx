@@ -68,7 +68,7 @@ export default function HomeScreen() {
           {selectedTopic || TEXTS.allTopics}
         </Text>
         <View style={styles.iconCircle}>
-          <Text style={styles.iconArrow}>▼</Text>
+          <Text style={styles.iconArrow}>{TEXTS.downChar}</Text>
         </View>
       </TouchableOpacity>
 
